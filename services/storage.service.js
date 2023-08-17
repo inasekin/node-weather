@@ -3,6 +3,11 @@ import { promises } from 'node:fs';
 
 const filePath = join(process.cwd(), 'weather-data.json');
 
+const TOKEN_DICTIONARY = {
+    token: 'token',
+    city: 'city',
+}
+
 const isExist = async (path) => {
     try {
         await promises.stat(path);
@@ -36,4 +41,4 @@ const saveKeyValue = async (key, value) => {
     await promises.writeFile(filePath, JSON.stringify(data));
 };
 
-export { saveKeyValue, getKeyValue };
+export { saveKeyValue, getKeyValue, TOKEN_DICTIONARY };
